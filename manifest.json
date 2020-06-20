@@ -1,0 +1,38 @@
+{
+  "name": "Google Cal Invite Request",
+  "description": "Request invites to Google Calendar events",
+  "author": "Gino Valente",
+  "permissions": [],
+  "browser_action": {
+    "default_title": "Google Calendar Invite Request",
+    "default_icon": {
+      "16": "images/default_icon16.png",
+      "32": "images/default_icon32.png",
+      "48": "images/default_icon48.png",
+      "128": "images/default_icon128.png"
+    }
+  },
+  "icons": {
+    "16": "images/default_icon16.png",
+    "32": "images/default_icon32.png",
+    "48": "images/default_icon48.png",
+    "128": "images/default_icon128.png"
+  },
+  "content_scripts": [
+    {
+      "all_frames": false,
+      "css": [
+        "style.css"
+      ],
+      "js": [
+        "contentscript.js"
+      ],
+      "matches": [
+        "https://calendar.google.com/*"
+      ],
+      "run_at": "document_end"
+    }
+  ],
+  "manifest_version": 1,
+  "version": "1.0"
+}
