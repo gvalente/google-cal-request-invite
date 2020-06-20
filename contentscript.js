@@ -3,10 +3,16 @@ const GCAL_EVENT_MENU_JSCONTROLLER = "IJBtxc";
 const GCAL_EVENT_MENU_SPAN_JSNAME = "lbYRR";
 let isMenuItemAdded = false;
 
-
 // Go do the mail stuff
 function requestInvite() {
   console.log('request invite');
+
+  const to = encodeURIComponent('to@to.com');
+  const subject = encodeURIComponent('Subject line');
+  const body = encodeURIComponent('Hey, can I get an invite to this calendar event?');
+
+  const mailTo = `mailto:${to}?subject=${subject}&body=${body}`;
+  window.open(mailTo, '_blank');
 }
 
 // Clone, customize, and add new menu span item with custom click handler
@@ -50,6 +56,7 @@ function observeEventModal() {
   observer.observe(eventMenuNode, config);
 }
 
+// Start observing for the modal on load
 window.onload = () => {
   observeEventModal();
 };
